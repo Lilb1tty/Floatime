@@ -1,5 +1,7 @@
 # Floatime
 
+简体中文 | [English](README.en.md)
+
 Floatime 是一款 Windows 桌面悬浮时钟。它支持自定义时区、字体、颜色与透明度，可调整窗口位置和大小。
 
 - 三种主题与极简模式
