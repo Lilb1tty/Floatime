@@ -8,6 +8,9 @@ Floatime is a floating desktop clock for Windows. Customize the time zone, font,
 - Configurable time, date, and weekday display
 - Context menu, position lock, and optional always-on-top mode
 - Optional taskbar icon and launch at startup
+- Optional additional clock over the primary taskbar, with the desktop clock hidden
+
+The additional clock is a click-through overlay; it does not receive mouse input. Windows does not reserve space for it, so it may visually overlap taskbar icons. Adjust its position in Settings. It may be unavailable when the taskbar is set to auto-hide.
 
 ## Preview
 

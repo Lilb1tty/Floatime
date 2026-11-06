@@ -1,6 +1,6 @@
 {
   "name": "floating-clock",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "description": "Windows desktop floating clock",
   "main": "electron/main.cjs",
@@ -32,10 +32,12 @@
     "productName": "Floatime",
     "files": [
       "dist/**/*",
-      "electron/**/*"
+      "electron/**/*",
+      "assets/icon.ico"
     ],
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "icon": "assets/icon.ico"
     },
     "directories": {
       "output": "release"
@@ -47,7 +49,9 @@
       "installerSidebar": "build/installer-sidebar.bmp",
       "uninstallerSidebar": "build/installer-sidebar.bmp",
       "installerHeader": "build/installer-header.bmp",
-      "include": "build/installer.nsh"
+      "include": "build/installer.nsh",
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico"
     }
   }
 }

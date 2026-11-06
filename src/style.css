@@ -5,3 +5,5 @@
 
 /* Clip theme content to the same rounded shape as its background. */
 .clock{border-radius:16px}.clock.theme-dial:not(.minimal){border-radius:50%}
+
+.taskbar-clock{height:100%;display:flex;align-items:center;justify-content:center;white-space:nowrap;font-size:12px;font-variant-numeric:tabular-nums;user-select:none;background:transparent}
