@@ -21,7 +21,7 @@ Floatime 是一款 Windows 桌面悬浮时钟。它支持自定义时区、字�
 
 ## 安装
 
-在 GitHub Releases 下载 Windows 安装程序。安装后右键时钟可打开菜单与设置。
+在 GitHub Releases 下载 Windows 安装程序。安装向导支持选择安装目录。安装后右键时钟可打开菜单与设置。
 
 ## 开发
 

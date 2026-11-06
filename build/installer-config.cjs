@@ -1,0 +1,2 @@
+const {version}=require('../package.json')
+module.exports={appId:'com.clock.floatime.installer',productName:'Floatime Setup',directories:{output:'release'},files:['installer/**/*'],extraMetadata:{main:'installer/main.cjs'},extraResources:[{from:`release/engine/Floatime Setup ${version}.exe`,to:'floatime-engine.exe'}],win:{target:['portable'],artifactName:'Floatime Setup ${version}.${ext}'},portable:{requestExecutionLevel:'user'}}

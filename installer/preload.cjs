@@ -1,0 +1,2 @@
+const {contextBridge,ipcRenderer}=require('electron')
+contextBridge.exposeInMainWorld('installer',{defaultDir:()=>ipcRenderer.invoke('installer:default-dir'),chooseDir:current=>ipcRenderer.invoke('installer:choose-dir',current),targetDir:value=>ipcRenderer.invoke('installer:target-dir',value),install:dir=>ipcRenderer.invoke('installer:install',dir),finish:run=>ipcRenderer.invoke('installer:finish',run),close:()=>ipcRenderer.send('installer:close')})

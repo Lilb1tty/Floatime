@@ -21,7 +21,7 @@ Floatime is a floating desktop clock for Windows. Customize the time zone, font,
 
 ## Installation
 
-Download the Windows installer from [GitHub Releases](https://github.com/Lilb1tty/Floatime/releases). Right-click the clock to open the menu and settings.
+Download the Windows installer from [GitHub Releases](https://github.com/Lilb1tty/Floatime/releases). The installation wizard lets you choose the installation folder. Right-click the clock to open the menu and settings.
 
 ## Development
 
