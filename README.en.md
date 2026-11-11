@@ -26,6 +26,10 @@ The additional clock is a click-through overlay; it does not receive mouse input
 
 Download the Windows installer from [GitHub Releases](https://github.com/Lilb1tty/Floatime/releases). The installation wizard lets you choose the installation folder. Right-click the clock to open the menu and settings.
 
+## Updates
+
+Floatime checks for updates at startup. You can also check in Settings. After downloading and verifying the update, Floatime opens the installer for confirmation. Publish `Floatime Setup <version>.exe` to a public GitHub Release tagged `v<version>`.
+
 ## Development
 
 Node.js and npm are required. Run these commands in the project directory:
