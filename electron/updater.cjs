@@ -32,8 +32,9 @@ function createUpdater({app, publish, request = fetch, launch = spawn}) {
       const release = await response.json(), version = release.tag_name
       if (!versionParts(version)) throw new Error('发布版本号格式无效。')
       if (!newer(version, app.getVersion())) { asset = null; set({status:'current', version}); return state }
-      const name = `Floatime Setup ${version.replace(/^v/, '')}.exe`
-      asset = release.assets?.find(item => item.name === name && item.state === 'uploaded')
+      // GitHub renames uploaded assets: spaces become dots.
+      const name = `Floatime.Setup.${version.replace(/^v/, '')}.exe`
+      asset = release.assets?.find(item => item.name?.replace(/ /g, '.') === name && item.state === 'uploaded')
       if (!asset || !Number.isSafeInteger(asset.size) || asset.size <= 0 || asset.size > maxSize || !/^sha256:[a-f0-9]{64}$/i.test(asset.digest || '')) throw new Error('更新包不存在，或缺少有效的 SHA-256 校验值。')
       const url = new URL(asset.browser_download_url)
       if (url.protocol !== 'https:' || url.hostname !== 'github.com' || !url.pathname.startsWith('/Lilb1tty/Floatime/releases/download/')) throw new Error('更新包地址无效。')

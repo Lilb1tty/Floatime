@@ -1,0 +1,47 @@
+name: Release
+
+# Push a tag like v1.3.0 (matching package.json "version") to build the
+# installer and publish it as a GitHub Release.
+on:
+  push:
+    tags: ['v*.*.*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Check tag matches package.json version
+        shell: bash
+        run: |
+          version=$(node -p "require('./package.json').version")
+          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match package.json version $version"
+            exit 1
+          fi
+          echo "VERSION=$version" >> "$GITHUB_ENV"
+
+      - run: npm ci
+
+      - run: npm run dist
+
+      # GitHub stores the asset as "Floatime.Setup.<version>.exe" (spaces become dots).
+      - name: Publish GitHub release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >
+          gh release create "$GITHUB_REF_NAME"
+          "release/Floatime Setup $VERSION.exe"
+          --title "Floatime $GITHUB_REF_NAME"
+          --generate-notes
+          --verify-tag
